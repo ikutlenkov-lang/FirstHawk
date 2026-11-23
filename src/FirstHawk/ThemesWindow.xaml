@@ -2,7 +2,7 @@
     <Grid Margin="26">
         <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
         <StackPanel Margin="0,0,0,22">
-            <TextBlock Text="FIRSTHAWK / APPEARANCE" Foreground="#91A8E8" FontSize="10" FontWeight="Bold" CharacterSpacing="150"/>
+            <TextBlock Text="FIRSTHAWK / APPEARANCE" Foreground="#91A8E8" FontSize="10" FontWeight="Bold"/>
             <TextBlock Text="Theme gallery" FontSize="29" FontWeight="SemiBold" Margin="0,6,0,3"/>
             <TextBlock Text="Preview a style and apply it to the FirstHawk workspace." Foreground="#9AA8C4" FontSize="12"/>
         </StackPanel>
