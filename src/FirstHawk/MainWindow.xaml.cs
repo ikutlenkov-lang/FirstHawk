@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using System.Diagnostics;
 using System.Windows;
 
 namespace FirstHawk;
@@ -9,6 +9,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        ThemeService.Initialize();
         DetectWindows();
     }
 
@@ -18,8 +19,8 @@ public partial class MainWindow : Window
         bool isWindows11 = version.Build >= 22000;
         OsLabel.Text = isWindows11 ? "Windows 11" : "Windows 10 / compatible";
         SystemName.Text = isWindows11 ? "Windows 11" : "Windows 10";
-        SystemVersion.Text = $"Build {version.Build} · {Environment.Is64BitOperatingSystem switch { true => "64-bit", false => "32-bit" }}";
-        StatusText.Text = $"Running on {Environment.MachineName} · FirstHawk 0.1.0";
+        SystemVersion.Text = $"Build {version.Build} · {(Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit")}";
+        StatusText.Text = $"Running on {Environment.MachineName} · FirstHawk 0.1.0 · {ThemeService.CurrentThemeName}";
     }
 
     private void SetPage(string title, string subtitle)
@@ -29,16 +30,62 @@ public partial class MainWindow : Window
         StatusText.Text = $"Opened {title}";
     }
 
-    private void Overview_Click(object sender, RoutedEventArgs e) => SetPage("Good afternoon.", "A calmer, more personal desktop starts here.");
+    private void OpenWindowsSettings(string uri, string title, string subtitle)
+    {
+        SetPage(title, subtitle);
+        try
+        {
+            Process.Start(new ProcessStartInfo(uri) { UseShellExecute = true });
+            StatusText.Text = $"Opened Windows Settings · {title}";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Windows Settings could not be opened.\n\n{ex.Message}", "FirstHawk", MessageBoxButton.OK, MessageBoxImage.Warning);
+            StatusText.Text = $"Could not open {title}";
+        }
+    }
+
+    private void Overview_Click(object sender, RoutedEventArgs e)
+    {
+        SetPage("Good afternoon.", "A calmer, more personal desktop starts here.");
+        StatusText.Text = $"FirstHawk is ready · Theme: {ThemeService.CurrentThemeName}";
+    }
+
     private void Themes_Click(object sender, RoutedEventArgs e)
     {
         var window = new ThemesWindow { Owner = this };
         window.ShowDialog();
-        StatusText.Text = "Theme gallery closed.";
+        StatusText.Text = $"Active theme: {ThemeService.CurrentThemeName}";
     }
-    private void Taskbar_Click(object sender, RoutedEventArgs e) => SetPage("Taskbar studio", "Taskbar visual controls are being prepared for a reversible release.");
-    private void Desktop_Click(object sender, RoutedEventArgs e) => SetPage("Desktop studio", "Wallpaper collections and desktop widgets are coming next.");
-    private void Effects_Click(object sender, RoutedEventArgs e) => SetPage("Visual effects", "Explore motion, transparency, and window polish in a future update.");
-    private void Library_Click(object sender, RoutedEventArgs e) => SetPage("Mod library", "The extension catalogue is being prepared. Only trusted, reviewable modules will be supported.");
-    private void Settings_Click(object sender, RoutedEventArgs e) => SetPage("Settings", "FirstHawk preferences and restore controls will live here.");
+
+    private void Taskbar_Click(object sender, RoutedEventArgs e) =>
+        OpenWindowsSettings("ms-settings:taskbar", "Taskbar studio", "Windows taskbar settings are open. Changes are managed by Windows and can be reverted there.");
+
+    private void Desktop_Click(object sender, RoutedEventArgs e) =>
+        OpenWindowsSettings("ms-settings:personalization-background", "Desktop studio", "Choose and customize your Windows desktop background in the system settings.");
+
+    private void Effects_Click(object sender, RoutedEventArgs e) =>
+        OpenWindowsSettings("ms-settings:colors", "Visual effects", "Windows color, transparency, and appearance settings are open.");
+
+    private void Library_Click(object sender, RoutedEventArgs e) =>
+        MessageBox.Show("The module library is being built. Future modules will be reviewed, reversible, and installed only with your confirmation.", "FirstHawk · Mod library", MessageBoxButton.OK, MessageBoxImage.Information);
+
+    private void Settings_Click(object sender, RoutedEventArgs e)
+    {
+        var answer = MessageBox.Show(
+            $"Current theme: {ThemeService.CurrentThemeName}\n\nReset FirstHawk appearance to the default Midnight theme?",
+            "FirstHawk settings",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Question);
+
+        if (answer == MessageBoxResult.Yes)
+        {
+            ThemeService.Reset();
+            StatusText.Text = "Appearance reset to Midnight. The choice has been saved.";
+        }
+        else
+        {
+            StatusText.Text = $"Settings unchanged · Theme: {ThemeService.CurrentThemeName}";
+        }
+    }
 }
