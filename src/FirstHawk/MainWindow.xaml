@@ -137,7 +137,7 @@
                             <TextBlock Text="▤" FontSize="22" Foreground="#8CE0C2"/>
                             <TextBlock Text="Taskbar" FontSize="16" FontWeight="SemiBold" Margin="0,13,0,4"/>
                             <TextBlock Text="A cleaner taskbar look" Foreground="{DynamicResource MutedForeground}" FontSize="11"/>
-                            <Button Content="Coming soon" HorizontalAlignment="Left" Margin="0,15,0,0" IsEnabled="False"/>
+                            <Button Content="Open taskbar settings" HorizontalAlignment="Left" Margin="0,15,0,0" Click="Taskbar_Click"/>
                         </StackPanel>
                     </Border>
                     <Border Style="{StaticResource Card}" Margin="10,0,0,0">
@@ -145,7 +145,7 @@
                             <TextBlock Text="✧" FontSize="22" Foreground="#D4A8FF"/>
                             <TextBlock Text="Effects" FontSize="16" FontWeight="SemiBold" Margin="0,13,0,4"/>
                             <TextBlock Text="Motion and visual polish" Foreground="{DynamicResource MutedForeground}" FontSize="11"/>
-                            <Button Content="Coming soon" HorizontalAlignment="Left" Margin="0,15,0,0" IsEnabled="False"/>
+                            <Button Content="Open effects settings" HorizontalAlignment="Left" Margin="0,15,0,0" Click="Effects_Click"/>
                         </StackPanel>
                     </Border>
                 </UniformGrid>
