@@ -49,7 +49,7 @@
                         </Border>
                         <StackPanel Margin="11,0,0,0" VerticalAlignment="Center">
                             <TextBlock Text="FirstHawk" FontSize="19" FontWeight="Bold"/>
-                            <TextBlock Text="WINDOWS STUDIO" FontSize="9" Foreground="#8797B7" CharacterSpacing="150"/>
+                            <TextBlock Text="WINDOWS STUDIO" FontSize="9" Foreground="#8797B7"/>
                         </StackPanel>
                     </StackPanel>
                     <TextBlock Text="WORKSPACE" Foreground="#6F7F9F" FontSize="10" FontWeight="Bold" Margin="8,0,0,10"/>
@@ -75,7 +75,7 @@
             <StackPanel Margin="34,28,34,34">
                 <Grid Margin="0,0,0,24">
                     <StackPanel>
-                        <TextBlock x:Name="PageEyebrow" Text="YOUR WINDOWS, REIMAGINED" Foreground="#91A8E8" FontSize="10" FontWeight="Bold" CharacterSpacing="170"/>
+                        <TextBlock x:Name="PageEyebrow" Text="YOUR WINDOWS, REIMAGINED" Foreground="#91A8E8" FontSize="10" FontWeight="Bold"/>
                         <TextBlock x:Name="PageTitle" Text="Good afternoon." FontSize="32" FontWeight="SemiBold" Margin="0,7,0,4"/>
                         <TextBlock x:Name="PageSubtitle" Text="A calmer, more personal desktop starts here." Foreground="#9AA8C4" FontSize="14"/>
                     </StackPanel>
@@ -97,7 +97,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="250"/></Grid.ColumnDefinitions>
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="FEATURED COLLECTION" FontSize="10" FontWeight="Bold" Foreground="#B7C9FF" CharacterSpacing="150"/>
+                            <TextBlock Text="FEATURED COLLECTION" FontSize="10" FontWeight="Bold" Foreground="#B7C9FF"/>
                             <TextBlock Text="Find your look." FontSize="30" FontWeight="SemiBold" Margin="0,10,0,5"/>
                             <TextBlock Text="Explore curated visual styles for your FirstHawk workspace." Foreground="#D3DDF8" FontSize="13" MaxWidth="430" TextWrapping="Wrap"/>
                             <Button Content="Explore themes  →" HorizontalAlignment="Left" Margin="0,20,0,0" Background="#7898F7" BorderBrush="#A7BAFF" Foreground="#101A35" FontWeight="SemiBold" Click="Themes_Click"/>
@@ -122,7 +122,7 @@
                         </Grid>
                     </Grid>
                 </Border>
-                <TextBlock Text="QUICK ACCESS" Foreground="#8192B4" FontSize="10" FontWeight="Bold" CharacterSpacing="160" Margin="2,0,0,12"/>
+                <TextBlock Text="QUICK ACCESS" Foreground="#8192B4" FontSize="10" FontWeight="Bold" Margin="2,0,0,12"/>
                 <UniformGrid Columns="3" Rows="1" Margin="0,0,0,22">
                     <Border Style="{StaticResource Card}" Margin="0,0,10,0">
                         <StackPanel>
@@ -153,14 +153,14 @@
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
                     <Border Style="{StaticResource Card}" Margin="0,0,8,0">
                         <StackPanel>
-                            <TextBlock Text="SYSTEM SNAPSHOT" Foreground="#8192B4" FontSize="10" FontWeight="Bold" CharacterSpacing="130"/>
+                            <TextBlock Text="SYSTEM SNAPSHOT" Foreground="#8192B4" FontSize="10" FontWeight="Bold"/>
                             <TextBlock x:Name="SystemName" Text="Windows" FontSize="19" FontWeight="SemiBold" Margin="0,10,0,2"/>
                             <TextBlock x:Name="SystemVersion" Text="Checking system version…" Foreground="#9AA8C4" FontSize="12"/>
                         </StackPanel>
                     </Border>
                     <Border Style="{StaticResource Card}" Grid.Column="1" Margin="8,0,0,0">
                         <StackPanel>
-                            <TextBlock Text="SAFE BY DESIGN" Foreground="#8192B4" FontSize="10" FontWeight="Bold" CharacterSpacing="130"/>
+                            <TextBlock Text="SAFE BY DESIGN" Foreground="#8192B4" FontSize="10" FontWeight="Bold"/>
                             <TextBlock Text="Reversible changes" FontSize="19" FontWeight="SemiBold" Margin="0,10,0,2"/>
                             <TextBlock Text="Visual modules will include clear previews and restore options." Foreground="#9AA8C4" FontSize="12" TextWrapping="Wrap"/>
                         </StackPanel>
