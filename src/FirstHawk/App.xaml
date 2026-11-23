@@ -1,5 +1,17 @@
 <Application x:Class="FirstHawk.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml">
   <Application.Resources>
     <FontFamily x:Key="UiFont">Segoe UI Variable, Segoe UI</FontFamily>
+    <SolidColorBrush x:Key="AppBackground" Color="#0B1020"/>
+    <SolidColorBrush x:Key="SidebarBackground" Color="#0E1527"/>
+    <SolidColorBrush x:Key="SurfaceBackground" Color="#151D31"/>
+    <SolidColorBrush x:Key="SurfaceAltBackground" Color="#17233B"/>
+    <SolidColorBrush x:Key="AppForeground" Color="#F3F6FF"/>
+    <SolidColorBrush x:Key="MutedForeground" Color="#9AA8C4"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#7C9CFF"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#263451"/>
+    <SolidColorBrush x:Key="ButtonBackground" Color="#222E49"/>
+    <SolidColorBrush x:Key="AccentSurface" Color="#26365B"/>
+    <SolidColorBrush x:Key="AccentBorder" Color="#425D99"/>
+    <SolidColorBrush x:Key="ButtonHoverBackground" Color="#30436A"/>
   </Application.Resources>
 </Application>
